@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.sistem_pemesanan_tiket_kapal;
+package model;
+
+import model.Kapal;
 
 /**
  *
@@ -10,7 +12,7 @@ package com.mycompany.sistem_pemesanan_tiket_kapal;
  */
 public class Pemesanan {
     
-    private String idPemesanan;
+    private final String idPemesanan;
     private Penumpang penumpang;
     private Kapal kapal;
     private int jumlahTiket;
@@ -38,20 +40,22 @@ public class Pemesanan {
         return jumlahTiket;
     }
 
-    public void setIdPemesanan(String idPemesanan) {
-        this.idPemesanan = idPemesanan;
-    }
-
     public void setPenumpang(Penumpang penumpang) {
-        this.penumpang = penumpang;
+        if (penumpang != null) {
+            this.penumpang = penumpang;
+        }
     }
 
     public void setKapal(Kapal kapal) {
-        this.kapal = kapal;
+        if (kapal != null) {
+            this.kapal = kapal;
+        }
     }
 
     public void setJumlahTiket(int jumlahTiket) {
-        this.jumlahTiket = jumlahTiket;
+        if (jumlahTiket > 0) {
+            this.jumlahTiket = jumlahTiket;
+        }
     }
 
     public int getTotalHarga() {
