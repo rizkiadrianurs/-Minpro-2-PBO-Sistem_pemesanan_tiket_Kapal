@@ -62,13 +62,11 @@ Sistem_pemesanan_tiket_Kapal
 
 ---
 
-## Penjelasan Alur Program
+## Alur dan Gambaran Output Program
 
-### 1. Program Dimulai
+### Program Dimulai dan Pengisian Dummy Data
 
 Program dijalankan melalui method `main` pada kelas `Sistem_pemesanan_tiket_Kapal`. Method tersebut membuat objek `PemesananController` lalu memanggil `jalankanProgram()`.
-
-### 2. Pengisian Dummy Data
 
 Saat objek `PemesananController` dibuat, constructor memanggil method `isiDummyData()` yang menambahkan 2 data awal ke dalam `ArrayList`:
 
@@ -77,7 +75,9 @@ Saat objek `PemesananController` dibuat, constructor memanggil method `isiDummyD
 | 101 | Andi | KM Bukit Siguntang | Balikpapan | VIP | 2 |
 | 102 | Budi | KM Lambelu | Makassar | Ekonomi | 1 |
 
-### 3. Menu Utama
+Data pemesanan disimpan sementara di dalam memori menggunakan `ArrayList<Pemesanan>` selama program berjalan, dan dapat ditambah, ditampilkan, diubah, atau dihapus lewat menu yang tersedia.
+
+### Menu Utama
 
 Program menampilkan menu utama secara berulang menggunakan perulangan `do-while`. Perulangan akan terus berjalan sampai pengguna memilih menu Keluar.
 
@@ -89,17 +89,9 @@ Program menampilkan menu utama secara berulang menggunakan perulangan `do-while`
 | 4 | **Hapus Pemesanan** | Menghapus data pemesanan yang dipilih. |
 | 5 | **Keluar** | Mengakhiri program. |
 
-### 4. Penyimpanan Data
+<img width="403" height="238" alt="Screenshot menu utama" src="https://github.com/user-attachments/assets/0bda7e13-9d02-411f-a5cd-a475a39341f4" />
 
-Data pemesanan disimpan sementara di dalam memori menggunakan `ArrayList<Pemesanan>`. Data dapat ditambah, ditampilkan, diubah, dan dihapus selama program masih berjalan.
-
-### 5. Program Berakhir
-
-Ketika pengguna memilih menu Keluar, kondisi perulangan `do-while` tidak terpenuhi sehingga perulangan berhenti dan program selesai dijalankan.
-
----
-
-## Detail Menu Program
+Pada bagian ini, sistem menampilkan 5 menu utama, yaitu Tambah Pemesanan, Tampilkan Pemesanan, Ubah Pemesanan, Hapus Pemesanan, dan Keluar.
 
 ### 1. Tambah Pemesanan (Menu 1)
 
@@ -121,6 +113,10 @@ Ketika pengguna memilih menu Keluar, kondisi perulangan `do-while` tidak terpenu
 | 2 | KM Lambelu | Makassar | Ekonomi | Rp200000 | Kursi penumpang |
 | 3 | KM Dorolonda | Parepare | Ekonomi | Rp175000 | Kursi penumpang |
 
+<img width="495" height="571" alt="image" src="https://github.com/user-attachments/assets/c3aec39e-03c5-44d4-bd4f-3f72a6fda8f7" />
+
+Pada bagian ini, pengguna memasukkan data penumpang, memilih kapal, dan menentukan jumlah tiket. Sistem menyimpan data serta menghitung total harga secara otomatis.
+
 ### 2. Tampilkan Pemesanan (Menu 2)
 
 **Alur proses:**
@@ -130,6 +126,10 @@ Ketika pengguna memilih menu Keluar, kondisi perulangan `do-while` tidak terpenu
 - Jika terdapat data, sistem menggunakan perulangan `for` untuk mengambil setiap objek `Pemesanan`.
 - Sistem menampilkan ID pemesanan, nama penumpang, NIK, umur, informasi kapal, jumlah tiket, dan total harga.
 - Informasi kapal ditampilkan melalui method `tampilkanInfo()`. Hasil tampilan berbeda untuk kapal VIP dan Ekonomi (lihat bagian Polymorphism).
+
+<img width="393" height="997" alt="image" src="https://github.com/user-attachments/assets/b6837b5b-68f7-45d7-9151-e1a8bf909c69" />
+
+Pada bagian ini, data dummy langsung tampil tanpa perlu menambah data terlebih dahulu. Informasi kapal VIP dan Ekonomi ditampilkan dengan fasilitas yang berbeda (polymorphism).
 
 ### 3. Ubah Pemesanan (Menu 3)
 
@@ -143,6 +143,14 @@ Ketika pengguna memilih menu Keluar, kondisi perulangan `do-while` tidak terpenu
 - Sistem menampilkan pesan "Data berhasil diubah."
 - Jika ID tidak ditemukan, sistem menampilkan pesan "ID Pemesanan tidak ditemukan."
 
+<img width="512" height="545" alt="image" src="https://github.com/user-attachments/assets/f470d58c-5cde-4c0e-8a46-ce6e891a78db" />
+
+Pada bagian ini, pengguna memasukkan ID pemesanan yang ingin diperbarui. Setelah data baru dimasukkan, sistem memperbarui informasi pemesanan dan menampilkan pesan "Data berhasil diubah."
+
+**Output setelah perubahan:**
+
+<img width="412" height="258" alt="image" src="https://github.com/user-attachments/assets/c9ec51dc-a76f-490b-b3fc-0278f00f0a6d" />
+
 ### 4. Hapus Pemesanan (Menu 4)
 
 **Alur proses:**
@@ -154,6 +162,14 @@ Ketika pengguna memilih menu Keluar, kondisi perulangan `do-while` tidak terpenu
 - Jika pengguna memilih `2`, sistem menampilkan "Penghapusan dibatalkan."
 - Jika ID tidak ditemukan, sistem menampilkan pesan "ID Pemesanan tidak ditemukan."
 
+<img width="358" height="257" alt="image" src="https://github.com/user-attachments/assets/69bed670-a2fd-4bde-a9ac-f15ce10b6b83" />
+
+Pada bagian ini, pengguna memasukkan ID pemesanan dan mengonfirmasi penghapusan. Jika pengguna memilih "Ya", sistem menghapus data dari `ArrayList` dan menampilkan pesan "Data berhasil dihapus."
+
+**Output setelah perubahan:**
+
+<img width="436" height="782" alt="image" src="https://github.com/user-attachments/assets/d567e4d3-e13f-4afb-a167-e62530fe79ae" />
+
 ### 5. Keluar (Menu 5)
 
 **Alur proses:**
@@ -161,6 +177,10 @@ Ketika pengguna memilih menu Keluar, kondisi perulangan `do-while` tidak terpenu
 - Pengguna memilih menu **5. Keluar**.
 - Sistem menampilkan pesan "Program selesai." dan "Terima kasih."
 - Nilai `pilihan` menjadi `5`, sehingga kondisi pada perulangan `do-while` tidak terpenuhi dan program berhenti.
+
+<img width="678" height="410" alt="image" src="https://github.com/user-attachments/assets/e96bbc89-6a94-4b55-924d-9572432a0415" />
+
+Pada bagian ini, pengguna memilih menu Keluar untuk mengakhiri program. Sistem menghentikan perulangan dan menampilkan pesan "Program selesai." dan "Terima kasih."
 
 ---
 
@@ -192,7 +212,7 @@ Penerapan encapsulation juga terdapat pada class `Kapal`, `Penumpang`, dan `Peme
 
 Program memiliki **1 superclass** dan **2 subclass**.
 
-<img width="278" height="72" alt="image" src="https://github.com/user-attachments/assets/05319d91-b80a-44b1-90d0-ea0d48413000" />
+<img width="396" height="70" alt="image" src="https://github.com/user-attachments/assets/638afb04-5daf-4078-ad26-aa994e261164" />
 
 - `KapalEkonomi` dan `KapalVIP` mewarisi atribut dan method dari `Kapal` menggunakan kata kunci `extends`.
 - Constructor subclass memanggil constructor superclass menggunakan `super(namaKapal, tujuan, hargaTiket)`.
@@ -264,13 +284,13 @@ Nilai tambah MVC diterapkan dengan memisahkan program ke dalam package `model`, 
 | `view` | `PemesananView` | Mengurus tampilan menu dan seluruh input dari pengguna beserta validasinya. |
 | `controller` | `PemesananController` | Mengatur alur program, menyimpan `ArrayList<Pemesanan>`, mengisi dummy data, dan mengelola proses CRUD. |
 
-Gambar Struktur MVC:
+Gambar MVC:
 
 <img width="417" height="317" alt="image" src="https://github.com/user-attachments/assets/66d8f145-e3d9-4a9a-a63e-57558b6c1764" />
 
-## 2. Polymorphism (Method Overriding)
+### 2. Polymorphism (Method Override)
 
-Polymorphism diterapkan melalui method `tampilkanInfo()` yang terdapat pada class `Kapal` dan memiliki implementasi berbeda pada subclass `KapalVIP` dan `KapalEkonomi`. Setiap subclass menampilkan informasi fasilitas sesuai dengan jenis kapal.
+Method `tampilkanInfo()` didefinisikan pada superclass `Kapal`, lalu **di-override** pada masing-masing subclass agar menampilkan fasilitas yang sesuai.
 
 | Kelas | Letak Method | Hasil Tampilan |
 |---|---|---|
@@ -286,53 +306,6 @@ Contoh gambar pada `Fasilitas Ekonomi`:
 
 <img width="702" height="141" alt="image" src="https://github.com/user-attachments/assets/bb86fdb9-0372-43e7-91f9-8f67b38e7714" />
 
-**Letak pemanggilan polymorphism:**  
-Pada `PemesananView.tampilkanDaftarPemesanan()`, terdapat pemanggilan `p.getKapal().tampilkanInfo()`. Variabel tersebut bertipe `Kapal`, tetapi object yang digunakan dapat berupa `KapalVIP` atau `KapalEkonomi`. Saat program berjalan, Java akan menjalankan `tampilkanInfo()` sesuai dengan jenis object yang digunakan. Selain itu, method `buatKapal()` pada controller mengembalikan tipe `Kapal` tetapi membuat objek `KapalVIP` atau `KapalEkonomi` (upcasting), sehingga satu `ArrayList<Pemesanan>` dapat menampung berbagai jenis kapal.
+**Letak pemanggilan polymorphism:** pada `PemesananView.tampilkanDaftarPemesanan()` terdapat pemanggilan `p.getKapal().tampilkanInfo()`. Tipe variabelnya adalah `Kapal`, tetapi objek yang sebenarnya bisa berupa `KapalVIP` atau `KapalEkonomi`. Java secara otomatis memilih versi `tampilkanInfo()` yang sesuai dengan jenis objek pada saat program berjalan.
 
----
-
-## Gambaran Output
-
-### 1. Menu Utama
-
-<img width="403" height="238" alt="Screenshot menu utama" src="https://github.com/user-attachments/assets/0bda7e13-9d02-411f-a5cd-a475a39341f4" />
-
-Pada bagian ini, sistem menampilkan 5 menu utama, yaitu Tambah Pemesanan, Tampilkan Pemesanan, Ubah Pemesanan, Hapus Pemesanan, dan Keluar.
-
-### 2. Tambah Pemesanan
-
-<img width="495" height="571" alt="image" src="https://github.com/user-attachments/assets/c3aec39e-03c5-44d4-bd4f-3f72a6fda8f7" />
-
-Pada bagian ini, pengguna memasukkan data penumpang, memilih kapal, dan menentukan jumlah tiket. Sistem menyimpan data serta menghitung total harga secara otomatis.
-
-### 3. Tampilkan Pemesanan (Dummy Data)
-
-<img width="393" height="997" alt="image" src="https://github.com/user-attachments/assets/b6837b5b-68f7-45d7-9151-e1a8bf909c69" />
-
-Pada bagian ini, data dummy langsung tampil tanpa perlu menambah data terlebih dahulu. Informasi kapal VIP dan Ekonomi ditampilkan dengan fasilitas yang berbeda (polymorphism).
-
-### 4. Ubah Pemesanan
-
-<img width="512" height="545" alt="image" src="https://github.com/user-attachments/assets/f470d58c-5cde-4c0e-8a46-ce6e891a78db" />
-
-Pada bagian ini, pengguna memasukkan ID pemesanan yang ingin diperbarui. Setelah data baru dimasukkan, sistem memperbarui informasi pemesanan dan menampilkan pesan "Data berhasil diubah."
-
-**Output setelah perubahan:**
-
-<img width="412" height="258" alt="image" src="https://github.com/user-attachments/assets/c9ec51dc-a76f-490b-b3fc-0278f00f0a6d" />
-
-### 5. Hapus Pemesanan
-
-<img width="358" height="257" alt="image" src="https://github.com/user-attachments/assets/69bed670-a2fd-4bde-a9ac-f15ce10b6b83" />
-
-Pada bagian ini, pengguna memasukkan ID pemesanan dan mengonfirmasi penghapusan. Jika pengguna memilih "Ya", sistem menghapus data dari `ArrayList` dan menampilkan pesan "Data berhasil dihapus."
-
-**Output setelah perubahan:**
-
-<img width="436" height="782" alt="image" src="https://github.com/user-attachments/assets/d567e4d3-e13f-4afb-a167-e62530fe79ae" />
-
-### 6. Keluar
-
-<img width="678" height="410" alt="image" src="https://github.com/user-attachments/assets/e96bbc89-6a94-4b55-924d-9572432a0415" />
-
-Pada bagian ini, pengguna memilih menu Keluar untuk mengakhiri program. Sistem menghentikan perulangan dan menampilkan pesan "Program selesai." dan "Terima kasih."
+Selain itu, method `buatKapal()` pada controller mengembalikan tipe `Kapal` tetapi membuat objek `KapalVIP` atau `KapalEkonomi` (upcasting), sehingga satu `ArrayList<Pemesanan>` dapat menampung berbagai jenis kapal.
