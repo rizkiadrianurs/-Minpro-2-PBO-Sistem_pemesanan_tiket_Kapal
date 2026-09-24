@@ -113,6 +113,8 @@ Pada bagian ini, sistem menampilkan 5 menu utama, yaitu Tambah Pemesanan, Tampil
 | 2 | KM Lambelu | Makassar | Ekonomi | Rp200000 | Kursi penumpang |
 | 3 | KM Dorolonda | Parepare | Ekonomi | Rp175000 | Kursi penumpang |
 
+**Output Program:**
+
 <img width="495" height="571" alt="image" src="https://github.com/user-attachments/assets/c3aec39e-03c5-44d4-bd4f-3f72a6fda8f7" />
 
 Pada bagian ini, pengguna memasukkan data penumpang, memilih kapal, dan menentukan jumlah tiket. Sistem menyimpan data serta menghitung total harga secara otomatis.
@@ -126,6 +128,8 @@ Pada bagian ini, pengguna memasukkan data penumpang, memilih kapal, dan menentuk
 - Jika terdapat data, sistem menggunakan perulangan `for` untuk mengambil setiap objek `Pemesanan`.
 - Sistem menampilkan ID pemesanan, nama penumpang, NIK, umur, informasi kapal, jumlah tiket, dan total harga.
 - Informasi kapal ditampilkan melalui method `tampilkanInfo()`. Hasil tampilan berbeda untuk kapal VIP dan Ekonomi (lihat bagian Polymorphism).
+
+**Output Program:**
 
 <img width="393" height="997" alt="image" src="https://github.com/user-attachments/assets/b6837b5b-68f7-45d7-9151-e1a8bf909c69" />
 
@@ -142,6 +146,8 @@ Pada bagian ini, data dummy langsung tampil tanpa perlu menambah data terlebih d
 - Data kapal dan jumlah tiket pada `Pemesanan` diperbarui menggunakan `setKapal()` dan `setJumlahTiket()`.
 - Sistem menampilkan pesan "Data berhasil diubah."
 - Jika ID tidak ditemukan, sistem menampilkan pesan "ID Pemesanan tidak ditemukan."
+
+**Output Program:**
 
 <img width="512" height="545" alt="image" src="https://github.com/user-attachments/assets/f470d58c-5cde-4c0e-8a46-ce6e891a78db" />
 
@@ -162,6 +168,8 @@ Pada bagian ini, pengguna memasukkan ID pemesanan yang ingin diperbarui. Setelah
 - Jika pengguna memilih `2`, sistem menampilkan "Penghapusan dibatalkan."
 - Jika ID tidak ditemukan, sistem menampilkan pesan "ID Pemesanan tidak ditemukan."
 
+**Output Program:**
+
 <img width="358" height="257" alt="image" src="https://github.com/user-attachments/assets/69bed670-a2fd-4bde-a9ac-f15ce10b6b83" />
 
 Pada bagian ini, pengguna memasukkan ID pemesanan dan mengonfirmasi penghapusan. Jika pengguna memilih "Ya", sistem menghapus data dari `ArrayList` dan menampilkan pesan "Data berhasil dihapus."
@@ -177,6 +185,8 @@ Pada bagian ini, pengguna memasukkan ID pemesanan dan mengonfirmasi penghapusan.
 - Pengguna memilih menu **5. Keluar**.
 - Sistem menampilkan pesan "Program selesai." dan "Terima kasih."
 - Nilai `pilihan` menjadi `5`, sehingga kondisi pada perulangan `do-while` tidak terpenuhi dan program berhenti.
+
+**Output Program:**
 
 <img width="678" height="410" alt="image" src="https://github.com/user-attachments/assets/e96bbc89-6a94-4b55-924d-9572432a0415" />
 
