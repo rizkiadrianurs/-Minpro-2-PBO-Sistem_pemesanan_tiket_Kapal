@@ -8,6 +8,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
-        <exec.mainClass>com.mycompany.sistem_pemesanan_tiket_kapal.Sistem_pemesanan_tiket_Kapal</exec.mainClass>
+        <exec.mainClass>main.Sistem_pemesanan_tiket_Kapal</exec.mainClass>
     </properties>
 </project>

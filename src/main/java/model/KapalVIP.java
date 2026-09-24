@@ -28,7 +28,8 @@ public class KapalVIP extends Kapal {
             this.fasilitasVIP = fasilitasVIP;
         }
     }
-
+    
+    @Override
     public void tampilkanInfo() {
         System.out.println("Nama Kapal     : " + getNamaKapal());
         System.out.println("Tujuan         : " + getTujuan());

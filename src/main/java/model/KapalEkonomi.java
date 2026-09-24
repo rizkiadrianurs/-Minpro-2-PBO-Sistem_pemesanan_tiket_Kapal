@@ -29,6 +29,7 @@ public class KapalEkonomi extends Kapal {
         }
     }
 
+    @Override
     public void tampilkanInfo() {
         System.out.println("Nama Kapal        : " + getNamaKapal());
         System.out.println("Tujuan            : " + getTujuan());

@@ -15,9 +15,9 @@ public class Kapal {
     private int hargaTiket;
 
     public Kapal(String namaKapal, String tujuan, int hargaTiket) {
-        this.namaKapal = namaKapal;
-        this.tujuan = tujuan;
-        this.hargaTiket = hargaTiket;
+        setNamaKapal(namaKapal);
+        setTujuan(tujuan);
+        setHargaTiket(hargaTiket);
     }
 
     public String getNamaKapal() {
@@ -35,18 +35,24 @@ public class Kapal {
     public void setNamaKapal(String namaKapal) {
         if (namaKapal != null && !namaKapal.trim().isEmpty()) {
             this.namaKapal = namaKapal;
+        } else {
+            System.out.println("Nama kapal tidak boleh kosong.");
         }
     }
 
     public void setTujuan(String tujuan) {
         if (tujuan != null && !tujuan.trim().isEmpty()) {
             this.tujuan = tujuan;
+        } else {
+            System.out.println("Tujuan tidak boleh kosong.");
         }
     }
 
     public void setHargaTiket(int hargaTiket) {
         if (hargaTiket > 0) {
             this.hargaTiket = hargaTiket;
+        } else {
+            System.out.println("Harga tiket harus lebih dari 0.");
         }
     }
 
