@@ -1,9 +1,9 @@
 # Minpro 2 PBO — Sistem Pemesanan Tiket Kapal
 
----
+**Nama**  : Rizki Adrianur Saputra
 
-**Nama**  : Rizki Adrianur Saputra  
-**NIM**   : 2509116049  
+**NIM**   : 2509116049
+
 **Kelas** : B
 
 ---
@@ -24,37 +24,25 @@ Program menyimpan data pemesanan sementara selama program berjalan menggunakan `
 
 ---
 
-## Struktur Package (MVC)
+## Struktur Folder
 
-Program disusun menggunakan pola **MVC (Model – View – Controller)** yang dibagi ke dalam 4 package.
+Struktur package pada project (mengikuti struktur MVC) adalah sebagai berikut:
 
-| Package | Kelas | Peran |
-|---|---|---|
-| `main` | `Sistem_pemesanan_tiket_Kapal` | Titik awal program. Hanya membuat objek controller dan menjalankannya. |
-| `model` | `Kapal`, `KapalEkonomi`, `KapalVIP`, `Penumpang`, `Pemesanan` | Menyimpan data serta aturan data (atribut, getter/setter, perhitungan total harga). |
-| `view` | `PemesananView` | Mengurus tampilan menu dan seluruh input dari pengguna beserta validasinya. |
-| `controller` | `PemesananController` | Mengatur alur program, menyimpan `ArrayList<Pemesanan>`, mengisi dummy data, dan mengelola proses CRUD. |
-
-### Struktur Folder
-
-```text
-Sistem_pemesanan_tiket_Kapal/
-├── pom.xml
-└── src/
-    └── main/
-        └── java/
-            ├── main/
-            │   └── Sistem_pemesanan_tiket_Kapal.java
-            ├── controller/
-            │   └── PemesananController.java
-            ├── model/
-            │   ├── Kapal.java
-            │   ├── KapalEkonomi.java
-            │   ├── KapalVIP.java
-            │   ├── Pemesanan.java
-            │   └── Penumpang.java
-            └── view/
-                └── PemesananView.java
+```
+Sistem_pemesanan_tiket_Kapal
+└── Source Packages
+    ├── controller
+    │   └── PemesananController.java
+    ├── main
+    │   └── Sistem_pemesanan_tiket_Kapal.java
+    ├── model
+    │   ├── Kapal.java
+    │   ├── KapalEkonomi.java
+    │   ├── KapalVIP.java
+    │   ├── Pemesanan.java
+    │   └── Penumpang.java
+    └── view
+        └── PemesananView.java
 ```
 
 ---
@@ -111,9 +99,9 @@ Ketika pengguna memilih menu Keluar, kondisi perulangan `do-while` tidak terpenu
 
 ---
 
-# Detail Menu Program
+## Detail Menu Program
 
-## 1. Tambah Pemesanan (Menu 1)
+### 1. Tambah Pemesanan (Menu 1)
 
 **Alur proses:**
 
@@ -133,9 +121,7 @@ Ketika pengguna memilih menu Keluar, kondisi perulangan `do-while` tidak terpenu
 | 2 | KM Lambelu | Makassar | Ekonomi | Rp200000 | Kursi penumpang |
 | 3 | KM Dorolonda | Parepare | Ekonomi | Rp175000 | Kursi penumpang |
 
----
-
-## 2. Tampilkan Pemesanan (Menu 2)
+### 2. Tampilkan Pemesanan (Menu 2)
 
 **Alur proses:**
 
@@ -145,9 +131,7 @@ Ketika pengguna memilih menu Keluar, kondisi perulangan `do-while` tidak terpenu
 - Sistem menampilkan ID pemesanan, nama penumpang, NIK, umur, informasi kapal, jumlah tiket, dan total harga.
 - Informasi kapal ditampilkan melalui method `tampilkanInfo()`. Hasil tampilan berbeda untuk kapal VIP dan Ekonomi (lihat bagian Polymorphism).
 
----
-
-## 3. Ubah Pemesanan (Menu 3)
+### 3. Ubah Pemesanan (Menu 3)
 
 **Alur proses:**
 
@@ -159,9 +143,7 @@ Ketika pengguna memilih menu Keluar, kondisi perulangan `do-while` tidak terpenu
 - Sistem menampilkan pesan "Data berhasil diubah."
 - Jika ID tidak ditemukan, sistem menampilkan pesan "ID Pemesanan tidak ditemukan."
 
----
-
-## 4. Hapus Pemesanan (Menu 4)
+### 4. Hapus Pemesanan (Menu 4)
 
 **Alur proses:**
 
@@ -172,9 +154,7 @@ Ketika pengguna memilih menu Keluar, kondisi perulangan `do-while` tidak terpenu
 - Jika pengguna memilih `2`, sistem menampilkan "Penghapusan dibatalkan."
 - Jika ID tidak ditemukan, sistem menampilkan pesan "ID Pemesanan tidak ditemukan."
 
----
-
-## 5. Keluar (Menu 5)
+### 5. Keluar (Menu 5)
 
 **Alur proses:**
 
@@ -184,91 +164,113 @@ Ketika pengguna memilih menu Keluar, kondisi perulangan `do-while` tidak terpenu
 
 ---
 
-# Penerapan Konsep Wajib
+## Penerapan Konsep Wajib
 
-## 1. Access Modifier
+### 1. Encapsulation
 
-| Modifier | Penerapan |
-|---|---|
-| `private` | Seluruh atribut pada kelas model (`Kapal`, `KapalEkonomi`, `KapalVIP`, `Penumpang`, `Pemesanan`), atribut `daftarPemesanan` dan `view` pada controller, atribut `input` (`Scanner`) pada view, serta method bantu pada controller seperti `isiDummyData()`, `tambahPemesanan()`, `ubahPemesanan()`, `hapusPemesanan()`, `idSudahAda()`, dan `buatKapal()`. |
-| `public` | Constructor, getter, setter, `tampilkanInfo()`, `getTotalHarga()`, method input pada view, dan `jalankanProgram()` pada controller. |
+Encapsulation diterapkan dengan menggunakan access modifier `private` pada atribut yang terdapat di dalam class.
 
-Dengan demikian, data tidak dapat diakses secara langsung dari luar kelas dan hanya dapat diakses melalui method yang disediakan.
+Contoh pada `model/Kapal.java`:
 
-## 2. Encapsulation
+<img width="360" height="125" alt="image" src="https://github.com/user-attachments/assets/d8868de2-a462-4db4-9e51-5f5f921cbecc" />
 
-Setiap atribut dibuat `private` dan diakses melalui **getter** dan **setter**. Setter juga berfungsi sebagai penjaga agar data yang masuk tetap valid.
+Atribut tersebut tidak dapat diakses secara langsung dari luar class. Untuk mengambil dan mengubah data digunakan method getter dan setter yang di dalamnya juga terdapat validasi.
 
-| Kelas | Atribut | Getter | Setter | Aturan pada Setter |
-|---|---|---|---|---|
-| `Kapal` | `namaKapal` | `getNamaKapal()` | `setNamaKapal()` | Tidak boleh `null` atau kosong. |
-| `Kapal` | `tujuan` | `getTujuan()` | `setTujuan()` | Tidak boleh `null` atau kosong. |
-| `Kapal` | `hargaTiket` | `getHargaTiket()` | `setHargaTiket()` | Harus lebih dari 0. |
-| `KapalEkonomi` | `fasilitasEkonomi` | `getFasilitasEkonomi()` | `setFasilitasEkonomi()` | Tidak boleh `null` atau kosong. |
-| `KapalVIP` | `fasilitasVIP` | `getFasilitasVIP()` | `setFasilitasVIP()` | Tidak boleh `null` atau kosong. |
-| `Penumpang` | `nama` | `getNama()` | `setNama()` | Tidak boleh `null` atau kosong. |
-| `Penumpang` | `nik` | `getNik()` | `setNik()` | Tidak boleh `null` atau kosong. |
-| `Penumpang` | `umur` | `getUmur()` | `setUmur()` | Harus lebih dari 0. |
-| `Pemesanan` | `idPemesanan` | `getIdPemesanan()` | — | Dibuat `final` sehingga ID tidak dapat diubah setelah dibuat. |
-| `Pemesanan` | `penumpang` | `getPenumpang()` | `setPenumpang()` | Tidak boleh `null`. |
-| `Pemesanan` | `kapal` | `getKapal()` | `setKapal()` | Tidak boleh `null`. |
-| `Pemesanan` | `jumlahTiket` | `getJumlahTiket()` | `setJumlahTiket()` | Harus lebih dari 0. |
+Contohnya:
 
-## 3. Inheritance
+**KapalVIP**
+
+<img width="705" height="197" alt="image" src="https://github.com/user-attachments/assets/3833dadd-c846-4ba1-9b11-e5971c454637" />
+
+**KapalEkonomi**
+
+<img width="773" height="192" alt="image" src="https://github.com/user-attachments/assets/537040b6-d201-40a3-805e-ead19f1467cb" />
+
+Penerapan encapsulation juga terdapat pada class `Kapal`, `Penumpang`, dan `Pemesanan`.
+
+### 2. Inheritance
 
 Program memiliki **1 superclass** dan **2 subclass**.
 
-```text
-                Kapal  (superclass)
-                  │   namaKapal, tujuan, hargaTiket
-        ┌─────────┴─────────┐
-  KapalEkonomi           KapalVIP   (subclass)
-  + fasilitasEkonomi     + fasilitasVIP
-```
+<img width="278" height="72" alt="image" src="https://github.com/user-attachments/assets/05319d91-b80a-44b1-90d0-ea0d48413000" />
 
 - `KapalEkonomi` dan `KapalVIP` mewarisi atribut dan method dari `Kapal` menggunakan kata kunci `extends`.
 - Constructor subclass memanggil constructor superclass menggunakan `super(namaKapal, tujuan, hargaTiket)`.
 - Setiap subclass menambahkan atribut khusus, yaitu `fasilitasEkonomi` pada `KapalEkonomi` dan `fasilitasVIP` pada `KapalVIP`.
 - Subclass mengambil data dari superclass melalui getter (`getNamaKapal()`, `getTujuan()`, `getHargaTiket()`) karena atribut superclass bersifat `private`.
 
-## 4. Validasi Input
+### 3. Validasi Input
 
 Validasi input diterapkan di dua lapisan: pada **view** (saat pengguna mengetik) dan pada **setter model** (sebagai lapisan pengaman data). Jika input tidak valid, sistem menampilkan pesan kesalahan dan meminta pengguna memasukkan ulang sampai benar.
 
-| Input | Aturan Validasi | Pesan Kesalahan |
-|---|---|---|
-| Pilihan menu | Harus angka dan bernilai 1–5. | "Input harus berupa angka." / "Pilihan menu harus 1-5." |
-| ID Pemesanan | Tidak boleh kosong, harus 3 karakter, hanya angka, dan tidak boleh sama dengan ID yang sudah ada. | "ID tidak boleh kosong." / "ID harus terdiri dari 3 angka." / "ID hanya boleh berisi angka." / "ID sudah digunakan." |
-| Nama Penumpang | Tidak boleh kosong, hanya huruf dan spasi. | "Nama tidak boleh kosong." / "Nama hanya boleh berisi huruf dan spasi." |
-| NIK | Harus tepat 16 karakter dan hanya angka. | "NIK harus terdiri dari 16 digit." / "NIK hanya boleh berisi angka." |
-| Umur | Tidak boleh kosong, maksimal 3 angka, hanya angka, dan harus lebih dari 0. | "Umur tidak boleh kosong." / "Umur maksimal 3 angka." / "Umur hanya boleh berupa angka." / "Umur harus lebih dari 0." |
-| Pilihan kapal | Harus angka dan bernilai 1–3. | "Input harus berupa angka." / "Pilihan kapal hanya 1-3." |
-| Jumlah tiket | Harus angka dan lebih dari 0. | "Jumlah tiket harus berupa angka." / "Jumlah tiket harus lebih dari 0." |
-| Konfirmasi hapus | Harus angka `1` atau `2`. | "Input harus berupa angka." / "Pilihan hanya 1 atau 2." |
+**3.1 ID Pemesanan**
 
-Selain itu, `NumberFormatException` ditangani dengan `try-catch` sehingga program tidak berhenti ketika pengguna memasukkan huruf pada input yang seharusnya angka.
+<img width="382" height="128" alt="image" src="https://github.com/user-attachments/assets/557744d3-42f1-402b-916f-6cb00b325ef1" />
 
-## 5. Dummy Data
+ID tidak boleh kosong, harus terdiri dari 3 angka, dan tidak boleh sama dengan ID yang sudah digunakan.
+
+**3.2 Nama Penumpang**
+
+<img width="425" height="130" alt="image" src="https://github.com/user-attachments/assets/9f1ce51c-e3ed-4ee3-8d3b-95a7498e3c4c" />
+
+Nama tidak boleh kosong dan hanya dapat berisi huruf serta spasi.
+
+**3.3 NIK**
+
+<img width="437" height="125" alt="image" src="https://github.com/user-attachments/assets/0e8a59cb-1f21-4885-8267-cf13de718d9c" />
+
+NIK tidak boleh kosong dan harus terdiri dari tepat 16 digit dan hanya dapat berisi angka.
+
+**3.4 Umur**
+
+<img width="307" height="175" alt="image" src="https://github.com/user-attachments/assets/8afa5d18-335e-40bf-b7d6-44b640767a14" />
+
+Umur tidak boleh kosong, harus berupa angka, maksimal 3 digit, dan nilainya harus lebih dari 0.
+
+**3.5 Pilihan Kapal**
+
+<img width="538" height="435" alt="image" src="https://github.com/user-attachments/assets/05d93148-8d87-4345-ad64-eb514f014339" />
+
+Pengguna hanya dapat memilih kapal dengan pilihan 1 sampai 3.
+
+**3.6 Jumlah Tiket**
+
+<img width="355" height="48" alt="image" src="https://github.com/user-attachments/assets/a35157f7-bd26-4ba7-9981-7f559be4c448" />
+
+Jumlah tiket harus berupa angka dan nilainya harus lebih dari 0.
+
+Selain validasi tersebut, program menggunakan `try-catch` untuk menangani `NumberFormatException` sehingga program tetap berjalan ketika pengguna memasukkan input yang tidak sesuai, seperti huruf pada input yang harus berupa angka.
+
+### 4. Dummy Data
 
 Method `isiDummyData()` pada `PemesananController` dipanggil di dalam constructor sehingga `ArrayList<Pemesanan>` sudah berisi 2 data (ID `101` dan `102`) ketika program pertama kali berjalan. Menu Tampilkan Pemesanan langsung menampilkan data tersebut tanpa perlu menambah data terlebih dahulu.
 
+Contoh gambar:
+
+<img width="510" height="458" alt="image" src="https://github.com/user-attachments/assets/be1ee4eb-a703-45cc-9756-ed4eda8f3079" />
+
 ---
 
-# Penerapan Nilai Tambah
+## Penerapan Nilai Tambah
 
-## 1. Struktur MVC
+### 1. Struktur MVC
 
-Nilai tambah MVC diterapkan dengan memisahkan program ke dalam package `model`, `view`, dan `controller` (penjelasan lengkap pada bagian **Struktur Package (MVC)** di atas).
+Nilai tambah MVC diterapkan dengan memisahkan program ke dalam package `model`, `main`, `view`, dan `controller` (lihat bagian **Struktur Folder** di atas untuk susunan lengkapnya).
 
-| Komponen | Letak | Contoh Penerapan |
+| Package | Kelas | Peran |
 |---|---|---|
-| **Model** | package `model` | `Kapal`, `KapalEkonomi`, `KapalVIP`, `Penumpang`, dan `Pemesanan` menyimpan data dan menghitung total harga. |
-| **View** | package `view` | `PemesananView` menampilkan menu, menerima input, memvalidasinya, dan menampilkan daftar pemesanan. |
-| **Controller** | package `controller` | `PemesananController` menghubungkan model dan view, menyimpan `ArrayList`, serta menjalankan proses tambah, tampil, ubah, dan hapus. |
+| `main` | `Sistem_pemesanan_tiket_Kapal` | Titik awal program. Hanya membuat objek controller dan menjalankannya. |
+| `model` | `Kapal`, `KapalEkonomi`, `KapalVIP`, `Penumpang`, `Pemesanan` | Menyimpan data serta aturan data (atribut, getter/setter, perhitungan total harga). |
+| `view` | `PemesananView` | Mengurus tampilan menu dan seluruh input dari pengguna beserta validasinya. |
+| `controller` | `PemesananController` | Mengatur alur program, menyimpan `ArrayList<Pemesanan>`, mengisi dummy data, dan mengelola proses CRUD. |
+
+Gambar Struktur MVC:
+
+<img width="417" height="317" alt="image" src="https://github.com/user-attachments/assets/66d8f145-e3d9-4a9a-a63e-57558b6c1764" />
 
 ## 2. Polymorphism (Method Overriding)
 
-Method `tampilkanInfo()` didefinisikan pada superclass `Kapal`, lalu **di-override** pada masing-masing subclass agar menampilkan fasilitas yang sesuai.
+Polymorphism diterapkan melalui method `tampilkanInfo()` yang terdapat pada class `Kapal` dan memiliki implementasi berbeda pada subclass `KapalVIP` dan `KapalEkonomi`. Setiap subclass menampilkan informasi fasilitas sesuai dengan jenis kapal.
 
 | Kelas | Letak Method | Hasil Tampilan |
 |---|---|---|
@@ -276,67 +278,60 @@ Method `tampilkanInfo()` didefinisikan pada superclass `Kapal`, lalu **di-overri
 | `KapalEkonomi` | `model/KapalEkonomi.java` | Nama kapal, tujuan, harga tiket, dan **Fasilitas Ekonomi**. |
 | `KapalVIP` | `model/KapalVIP.java` | Nama kapal, tujuan, harga tiket, dan **Fasilitas VIP**. |
 
-**Letak pemanggilan polymorphism:** pada `PemesananView.tampilkanDaftarPemesanan()` terdapat pemanggilan `p.getKapal().tampilkanInfo()`. Tipe variabelnya adalah `Kapal`, tetapi objek yang sebenarnya bisa berupa `KapalVIP` atau `KapalEkonomi`. Java secara otomatis memilih versi `tampilkanInfo()` yang sesuai dengan jenis objek pada saat program berjalan.
+Contoh gambar pada `Fasilitas VIP`:
 
-Selain itu, method `buatKapal()` pada controller mengembalikan tipe `Kapal` tetapi membuat objek `KapalVIP` atau `KapalEkonomi` (upcasting), sehingga satu `ArrayList<Pemesanan>` dapat menampung berbagai jenis kapal.
+<img width="673" height="142" alt="image" src="https://github.com/user-attachments/assets/b2e9af3d-045a-47e7-bc7f-7f78574d1269" />
+
+Contoh gambar pada `Fasilitas Ekonomi`:
+
+<img width="702" height="141" alt="image" src="https://github.com/user-attachments/assets/bb86fdb9-0372-43e7-91f9-8f67b38e7714" />
+
+**Letak pemanggilan polymorphism:**  
+Pada `PemesananView.tampilkanDaftarPemesanan()`, terdapat pemanggilan `p.getKapal().tampilkanInfo()`. Variabel tersebut bertipe `Kapal`, tetapi object yang digunakan dapat berupa `KapalVIP` atau `KapalEkonomi`. Saat program berjalan, Java akan menjalankan `tampilkanInfo()` sesuai dengan jenis object yang digunakan. Selain itu, method `buatKapal()` pada controller mengembalikan tipe `Kapal` tetapi membuat objek `KapalVIP` atau `KapalEkonomi` (upcasting), sehingga satu `ArrayList<Pemesanan>` dapat menampung berbagai jenis kapal.
 
 ---
 
-# Gambaran Output
+## Gambaran Output
 
-## 1. Menu Utama
+### 1. Menu Utama
 
-<img width="403" height="238" alt="Screenshot 2026-09-24 164227" src="https://github.com/user-attachments/assets/0bda7e13-9d02-411f-a5cd-a475a39341f4" />
+<img width="403" height="238" alt="Screenshot menu utama" src="https://github.com/user-attachments/assets/0bda7e13-9d02-411f-a5cd-a475a39341f4" />
 
 Pada bagian ini, sistem menampilkan 5 menu utama, yaitu Tambah Pemesanan, Tampilkan Pemesanan, Ubah Pemesanan, Hapus Pemesanan, dan Keluar.
 
----
-
-## 2. Tambah Pemesanan
+### 2. Tambah Pemesanan
 
 <img width="495" height="571" alt="image" src="https://github.com/user-attachments/assets/c3aec39e-03c5-44d4-bd4f-3f72a6fda8f7" />
 
 Pada bagian ini, pengguna memasukkan data penumpang, memilih kapal, dan menentukan jumlah tiket. Sistem menyimpan data serta menghitung total harga secara otomatis.
 
----
-
-## 3. Tampilkan Pemesanan (Dummy Data)
+### 3. Tampilkan Pemesanan (Dummy Data)
 
 <img width="393" height="997" alt="image" src="https://github.com/user-attachments/assets/b6837b5b-68f7-45d7-9151-e1a8bf909c69" />
 
 Pada bagian ini, data dummy langsung tampil tanpa perlu menambah data terlebih dahulu. Informasi kapal VIP dan Ekonomi ditampilkan dengan fasilitas yang berbeda (polymorphism).
 
----
-
-## 4. Ubah Pemesanan
+### 4. Ubah Pemesanan
 
 <img width="512" height="545" alt="image" src="https://github.com/user-attachments/assets/f470d58c-5cde-4c0e-8a46-ce6e891a78db" />
 
 Pada bagian ini, pengguna memasukkan ID pemesanan yang ingin diperbarui. Setelah data baru dimasukkan, sistem memperbarui informasi pemesanan dan menampilkan pesan "Data berhasil diubah."
 
-### Output Perubahan
+**Output setelah perubahan:**
 
 <img width="412" height="258" alt="image" src="https://github.com/user-attachments/assets/c9ec51dc-a76f-490b-b3fc-0278f00f0a6d" />
 
----
-
-## 5. Hapus Pemesanan
-
-📷 **Tempat gambar: proses hapus dengan konfirmasi**
+### 5. Hapus Pemesanan
 
 <img width="358" height="257" alt="image" src="https://github.com/user-attachments/assets/69bed670-a2fd-4bde-a9ac-f15ce10b6b83" />
 
 Pada bagian ini, pengguna memasukkan ID pemesanan dan mengonfirmasi penghapusan. Jika pengguna memilih "Ya", sistem menghapus data dari `ArrayList` dan menampilkan pesan "Data berhasil dihapus."
 
-### Output Perubahan
+**Output setelah perubahan:**
 
 <img width="436" height="782" alt="image" src="https://github.com/user-attachments/assets/d567e4d3-e13f-4afb-a167-e62530fe79ae" />
 
----
-
-## 6. Keluar
-
-📷 **Tempat gambar: tampilan setelah memilih menu Keluar**
+### 6. Keluar
 
 <img width="678" height="410" alt="image" src="https://github.com/user-attachments/assets/e96bbc89-6a94-4b55-924d-9572432a0415" />
 
